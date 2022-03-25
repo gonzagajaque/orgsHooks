@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+
 import Estrelas from '../../../components/Estrelas';
 
 export default function Produtor({ nome, imagem, distancia, estrelas }) {
-
     const [selecionado, inverterSelecionado] = useReducer(
         (selecionado) => !selecionado,
         false
@@ -17,14 +17,13 @@ export default function Produtor({ nome, imagem, distancia, estrelas }) {
             <Image source={imagem} accessibilityLabel={nome} style={styles.imagem} />
             <View style={styles.informacoes}>
                 <View>
-                    <Text>{nome}</Text>
+                    <Text style={styles.nome}>{nome}</Text>
                     <Estrelas
                         quantidade={estrelas}
                         editavel={selecionado}
                         grande={selecionado}
                     />
                 </View>
-                <Text style={styles.nome}>{nome}</Text>
                 <Text style={styles.distancia}>{distancia}</Text>
             </View>
         </TouchableOpacity>
@@ -40,7 +39,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         //android
         elevation: 4,
-
         //ios
         shadowColor: '#000',
         shadowOffset: {
@@ -63,7 +61,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginLeft: 8,
         marginVertical: 16,
-        marginLeft: 16,
+        marginRight: 16,
     },
     nome: {
         fontSize: 14,
@@ -73,5 +71,5 @@ const styles = StyleSheet.create({
     distancia: {
         fontSize: 12,
         lineHeight: 19,
-    }
+    },
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 import Topo from './components/Topo';
 import Produtores from './components/Produtores';
 
